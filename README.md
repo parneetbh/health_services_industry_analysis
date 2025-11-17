@@ -1,7 +1,7 @@
 # 🌐 Health Services Industry Analysis  
-### Financial Analytics, NLP, and Word Embeddings Applied to US Public Firms
+### Financial Analytics and NLP Applied to US Public Firms
 
-This project combines financial analysis, keyword extraction, and modern NLP techniques to study the US Health Services industry. It integrates structured financial datasets with unstructured 10-K filing text to uncover sector patterns, map firm similarity, and evaluate the competitive position of Amedisys Inc through a mix of quantitative and text based methods.
+This project combines financial analysis and text based methods to study the US Health Services industry. It integrates structured financial datasets with unstructured 10-K filing text to uncover sector patterns, map firm similarity, and evaluate the competitive position of Amedisys Inc through a mix of quantitative and narrative based insights.
 
 ---
 
@@ -10,8 +10,8 @@ This project combines financial analysis, keyword extraction, and modern NLP tec
 - Analyze long term financial trends in the Health Services sector  
 - Clean and process Item 1 text from 10-K filings  
 - Extract and visualize sector keywords using frequency and TF-IDF  
-- Train a Word2Vec model to explore semantic relationships in filings  
-- Build firm level embeddings and identify similar competitors  
+- Train embeddings to explore semantic relationships in filings  
+- Identify similar firms based on narrative content  
 - Assess Amedisys Inc using revenue, ROA, and market share trends  
 
 ---
@@ -20,30 +20,33 @@ This project combines financial analysis, keyword extraction, and modern NLP tec
 
 - **public_firms.csv** – financial and accounting data  
 - **major_groups.csv** – SIC major group mappings  
-- **2020_10K_item1_full.csv** – Item 1 text from 10-K filings  
+- **2020_10K_item1_full.csv** – Item 1 text from 2020 10-K filings  
 
-All datasets are included in the data folder.
+**Note:**  
+The full datasets used for this analysis are not included in this repository due to GitHub file size limits.  
+A small sample file (`2020_10K_item1_sample.csv`) is provided to illustrate the text processing workflow.  
+The complete analysis was performed locally using the full files.
 
 ---
 
 ## 📈 1. Industry Level Exploration
 
-The Health Services sector was isolated using SIC major group codes.  
+The Health Services sector was identified using SIC major group codes.  
 Key insights include:
 
 - Leading firms by stock price and total sales  
 - Geographic distribution of company headquarters  
-- Average stock price trends across time  
-- Identification of firms most impacted during 2008  
+- Average stock price trends  
+- Sensitivity to the 2008 financial crisis  
 - Long term ROA patterns for US based firms  
 
-These findings establish the financial landscape of the industry.
+These results provide a financial overview of the sector.
 
 ---
 
 ## ✍️ 2. Text Processing and Keyword Insights
 
-Item 1 text was cleaned using:
+Item 1 text was cleaned using standard NLP steps:
 
 - Lowercasing  
 - Punctuation removal  
@@ -53,22 +56,22 @@ Keyword analysis included:
 
 - Frequency based ranking  
 - TF-IDF scoring  
-- Wordcloud visualizations highlighting sector vocabulary  
+- Wordcloud visualizations  
 
-This revealed common themes in how Health Services firms describe operations and risk.
+This highlights common patterns in how Health Services firms describe their operations and risks.
 
 ---
 
-## 🤖 3. Word Embeddings and Semantic Patterns
+## 🤖 3. Embeddings and Similarity Patterns
 
-A Word2Vec model was trained on all cleaned Item 1 text.
+Embeddings were trained on the cleaned Item 1 text to capture semantic patterns.
 
-### Model applications:
+### Applications:
 
-- Identifying the closest words to sector representative keywords  
-- Converting firm keywords into embeddings  
-- Aggregating those embeddings to create firm level vectors  
-- Computing similarity between firms based on narrative content  
+- Finding words related to selected sector concepts  
+- Embedding each firm’s keyword set  
+- Creating aggregated firm level vectors  
+- Identifying similarity between firms based on narrative content  
 
 This bridges qualitative business text with quantitative modeling.
 
@@ -76,21 +79,20 @@ This bridges qualitative business text with quantitative modeling.
 
 ## 🏥 4. Focal Firm: Amedisys Inc
 
-Amedisys was selected due to its strong 2020 stock performance.
+Amedisys was selected for deeper evaluation based on its strong stock performance in 2020.
 
 ### Competitor Identification  
-Firm level embeddings were compared using cosine similarity to find closest competitors with available financial data.
+Firms were compared using similarity in their embedded narrative representations to identify the closest competitors with complete financial data.
 
 ### Financial Benchmarking  
-Amedisys was analyzed against its peers for:
+Amedisys was analyzed against these peers based on:
 
 - Revenue growth  
-- ROA strength  
+- ROA performance  
 - Market share trends  
 
-The firm demonstrates steady growth, high operational efficiency, and increasing competitive presence.
-
-Detailed results and visualizations are available in the notebook.
+The company demonstrates steady growth, strong operational efficiency, and increasing competitive presence.  
+Full results and visualizations are available in the notebook.
 
 ---
 
@@ -100,6 +102,5 @@ Detailed results and visualizations are available in the notebook.
 - pandas  
 - numpy  
 - matplotlib  
-- wordcloud 
+- seaborn  
 - nltk  
-- gensim (Word2Vec)  
