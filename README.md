@@ -100,6 +100,6 @@ Detailed results and visualizations are available in the notebook.
 - pandas  
 - numpy  
 - matplotlib  
-- seaborn  
+- wordcloud 
 - nltk  
 - gensim (Word2Vec)  
